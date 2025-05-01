@@ -11,41 +11,34 @@ public class Main {
         // Creo un Scanner
         Scanner sc = new Scanner(System.in);
 
-        // Creo los objetos con datos de entrada por teclado
-        System.out.println("Cocinero. 1");
-        System.out.print("Ingrese el nombre: ");
-        String nombreC1 = sc.nextLine();
-        System.out.print("Ingrese los años de experiencia: ");
-        int aniosC1 = sc.nextInt(); sc.nextLine();
-        System.out.print("Ingrese la especialidad: ");
-        String especialidadC1 = sc.nextLine();
+        // Preguntar a usuario cuantos cocineros quiere agregar
+        System.out.print("¿Cuantos cocineros quiere agregar?: ");
+        int cantidad = sc.nextInt(); sc.nextLine();
 
-        Cocinero c1 = new Cocinero(nombreC1, aniosC1, especialidadC1);
+        // Creo un arreglo
+        Cocinero[] cocineros = new Cocinero[cantidad];
 
-        System.out.println("Cocinero. 2");
-        System.out.print("Ingrese el nombre: ");
-        String nombreC2 = sc.nextLine();
-        System.out.print("Ingrese los años de experiencia: ");
-        int aniosC2 = sc.nextInt(); sc.nextLine();
-        System.out.print("Ingrese la especialidad: ");
-        String especialidadC2 = sc.nextLine();
 
-        Cocinero c2 = new Cocinero(nombreC2, aniosC2, especialidadC2);
+        // Bucle para agregar los cocineros
+        for (int i = 0; i < cantidad; i++) {
 
-        System.out.println("Cocinero. 3");
-        System.out.print("Ingrese el nombre: ");
-        String nombreC3 = sc.nextLine();
-        System.out.print("Ingrese los años de experiencia: ");
-        int aniosC3 = sc.nextInt(); sc.nextLine();
-        System.out.print("Ingrese la especialidad: ");
-        String especialidadC3 = sc.nextLine();
+            System.out.println("\nIngrese la información del cocinero (" + (i + 1) + "): ");
 
-        Cocinero c3 = new Cocinero(nombreC3, aniosC3, especialidadC3);
+            System.out.print("Ingrese el nombre: ");
+            String nombre = sc.nextLine();
+            System.out.print("Ingrese los años de experiencia: ");
+            int aniosExperiencia = sc.nextInt(); sc.nextLine();
+            System.out.print("Ingrese la especialidad: ");
+            String especialidad = sc.nextLine();
+
+            cocineros[i] = new Cocinero(nombre, aniosExperiencia, especialidad);
+
+        }
 
         // Llamada a los métodos
-        c1.nostrarInformacionCocinero();
-        c2.nostrarInformacionCocinero();
-        c3.nostrarInformacionCocinero();
+        for (Cocinero cocinero : cocineros) {
+            cocinero.nostrarInformacionCocinero();
+        }
 
     }
 }
